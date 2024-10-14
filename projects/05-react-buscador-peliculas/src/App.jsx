@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import "./App.css";
 import { Movies } from "./components/Movies";
 import { useMovies } from "./hooks/useMovies";
