@@ -1,3 +1,5 @@
+import { type User } from "@/types.d";
+
 const delay = async (ms: number) =>
   await new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -5,7 +7,7 @@ type Props = {
   pageParam?: number;
 };
 
-export const fetchUsers = async ({ pageParam = 1 }: Props) => {
+export const fetchUsers = async ({ pageParam }: Props) => {
   await delay(300);
 
   return await fetch(
@@ -21,7 +23,7 @@ export const fetchUsers = async ({ pageParam = 1 }: Props) => {
       const nextCursor = currentPage > 3 ? undefined : currentPage + 1;
 
       return {
-        users: res.results,
+        users: res.results as User[],
         nextCursor,
       };
     });
